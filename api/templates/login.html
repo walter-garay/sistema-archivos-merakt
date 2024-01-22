@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <center>
+            <div class="container">
+                <h1>Pagina Login</h1>
+                {% csrf_token %}
+                <table cellpadding="5" cellpacing="2" border="1">
+                    <thead>
+                        <tr>
+                            <th colspan="2" align="center">Formulario Login</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingrese su correo Electronico</td>
+                            <td><input type="text" placeholder="Ingrese su correo" name="Correo" required></td>
+                        </tr>
+
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" placeholder="Ingrese su contraseña" name="password" required></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" align="center"></td>
+                            <button type="submit">Login</button>
+                            &nbsp;&nbsp;
+                            <button type="reset">Borrar</button>
+                        </tr>
+                    </tbody>
+                </table>
+                {% if messages %}
+                    {% for msg in messages %}
+                    <b>{{msg}}</b>
+                    {% endfor %}
+                    {% endif %}
+            </div>
+        </center>
+    </form>
+</body>
+</html>

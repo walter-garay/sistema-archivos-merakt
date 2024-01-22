@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% if request.session.Email %}
+{{request.session.Email}} &nbsp;&nbsp; 
+<div class="Sesion">
+    <a href="{% url 'principal' %}">Cerrar Sesion</a>
+</div>
+<body>
+    <header>
+        <div class="back">
+            <div class="conteiner">
+                <a class="merakt">MerakT Archivos</a>
+            </div>
+            <div class="conteiner1">
+                <input type="text" placeholder="Buscar...">
+            </div>
+        </div>
+
+        <div class="centro">
+            <div class="conteiner2">
+                <h2 class="titulo">Gestor De Archivos</h2>
+            </div>
+        </div>
+        <form action="subir" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{formulario.as_p}}
+            <label>
+                <i class='bx bx-user' ></i>
+                <input type="text" placeholder="propietario" name="propietario" required> 
+            </label>
+            <label>
+                <i class='bx bx-envelope' ></i>
+                <input type="file" name="archivo">
+            </label>
+            <label>
+                <i class='bx bx-lock-alt' ></i>
+                <input type="date" placeholder="fecha" name="fecha" required>
+            </label>
+            <button type="submit">Enviar</button>
+        </form>
+    </header>
+</body>
+{% else %}
+{% endif %}
+</html>

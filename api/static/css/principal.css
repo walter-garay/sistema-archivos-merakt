@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.conteiner {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 40px;
+}
+
+.back {
+    padding: 60px 0;
+    background-color: #080aa3;
+}
+
+.merakt {
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.conteiner .nave ul li {
+    position: relative;
+    float: left;
+    margin-right: -1180px;
+}
+
+.conteiner .nave ul{
+    padding: 0;
+    margin: 0;
+}
+.conteiner .nave ul li a {
+    font-size: 25px;
+    padding: 35px;
+    color: #ececec;
+    display: block;
+    font-weight: 400;
+    margin-left: 1720px;
+    margin-top: -75px;
+    margin-right: -560px;
+}
+.conteiner .nave ul li a:hover {
+    color: rgb(156, 0, 0);
+}
+
+.titulo {
+    color: rgb(0, 0, 0);
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.conteiner2 {
+    margin-left: 380px;
+    margin-top: 210px;
+}
