@@ -1,5 +1,5 @@
 from pyexpat.errors import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.conf import settings
 from .forms import ArchivoForm
 from . import serializers, models
@@ -24,6 +24,7 @@ def paginaIndex(request):
 def subir(request):
     if request.method == 'POST':
         propietario = request.POST['propietario']
+        propietario = get_object_or_404(Usuario, nombre = propietario)
         archivo = request.FILES.get('archivo')
         fecha = request.POST['fecha']
         Archivo(propietario=propietario,archivo=archivo,fecha=fecha).save()
