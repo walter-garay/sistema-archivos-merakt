@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
 </head>
-{% if request.session.Email %}
-{{request.session.Email}} &nbsp;&nbsp; 
-<div class="Sesion">
-    <a href="{% url 'principal' %}">Cerrar Sesion</a>
-</div>
 <body>
     <header>
         <div class="back">
             <div class="conteiner">
+            <div class="correo">
+                {% if request.session.Email %}
+                {{request.session.Email}} &nbsp;&nbsp;
+            </div>
+                <div class="link">
+                    <a class="links" href="{% url 'principal' %}">Cerrar Sesion</a>
+                </div>
                 <a class="merakt">MerakT Archivos</a>
             </div>
             <div class="conteiner1">
-                <input type="text" placeholder="Buscar...">
+                <input class="buscar" type="text" placeholder="Buscar...">
             </div>
         </div>
 
@@ -26,23 +33,23 @@
                 <h2 class="titulo">Gestor De Archivos</h2>
             </div>
         </div>
-        <form action="subir" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{formulario.as_p}}
-            <label>
-                <i class='bx bx-user' ></i>
-                <input type="text" placeholder="propietario" name="propietario" required> 
-            </label>
-            <label>
-                <i class='bx bx-envelope' ></i>
-                <input type="file" name="archivo">
-            </label>
-            <label>
-                <i class='bx bx-lock-alt' ></i>
-                <input type="date" placeholder="fecha" name="fecha" required>
-            </label>
-            <button type="submit">Enviar</button>
-        </form>
+
+        <div class="form">
+            <form action="subir" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{formulario.as_p}}
+                <div class="dentro">
+                    <i class='bx bx-user' ></i>
+                    <input type="text" placeholder="Propietario" name="propietario" required>
+                </div>
+                <div class="dentro1">
+                    <input type="file" name="archivo" multiple>
+                </div>
+                <div class="boton">
+                    <button class="boton1" cltype="submit">Enviar</button>
+                </div>
+            </form>
+        </div>  
     </header>
 </body>
 {% else %}

@@ -14,12 +14,13 @@
 
 .back {
     padding: 60px 0;
-    background-color: #3900AD;
+    background-color: #3900ad;
 }
 
 .merakt {
     font-size: 40px;
-    color: #FFFFFF;
+    color: #17d6e4;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     margin-left: 30px;
@@ -28,7 +29,7 @@
 .conteiner .nave ul li {
     position: relative;
     float: left;
-    margin-right: -1180px;
+    margin-right: -980px;
 }
 
 .conteiner .nave ul{
@@ -38,10 +39,11 @@
 .conteiner .nave ul li a {
     font-size: 25px;
     padding: 35px;
-    color: #ececec;
+    color: #ffffff;
     display: block;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    margin-left: 1720px;
+    margin-left: 1520px;
     margin-top: -75px;
     margin-right: -560px;
 }
@@ -50,17 +52,14 @@
 }
 
 .titulo {
-    color: rgb(0, 0, 0);
-    font-size: 100px;
+    color: rgb(27, 20, 17);
+    font-size: 600%;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 
 .conteiner2 {
-    margin-left: 380px;
-    margin-top: 210px;
-}
-
-body {
-    width: 100%;
+    margin-left: 21%;
+    margin-top: 14%;
 }
