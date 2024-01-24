@@ -7,6 +7,10 @@ from rest_framework import viewsets
 from .models import Usuario, Archivo
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse
+from django.http import FileResponse
+
+
+
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = models.Usuario.objects.all()
@@ -18,19 +22,25 @@ class ArchivoViewSet(viewsets.ModelViewSet):
     
 # Create your views here.
 
+def descargar_archivo(request, archivo_id):
+    archivo = get_object_or_404(Archivo, pk=archivo_id)
+    response = FileResponse(archivo.archivo, as_attachment=True)
+    return response
+
 def paginaIndex(request):
     return render(request, 'index.html')
 
 def subir(request):
+    archivos = Archivo.objects.all()
+            
     if request.method == 'POST':
         propietario = request.POST['propietario']
-        propietario = get_object_or_404(Usuario, nombre = propietario)
-        archivo = request.FILES.get('archivo')
-        
-        Archivo(propietario=propietario,archivo=archivo).save()
+        propietario = get_object_or_404(Usuario, nombre=propietario)
+        Archivo(propietario=propietario, archivos=archivos).save() 
         return HttpResponse('Archivo subido exitosamente')
+    
     else:
-        return render(request, 'subir.html')
+        return render(request, 'subir.html', {'archivos': archivos})
 
 def registrar(request):
     if request.method == 'POST':

@@ -35,7 +35,8 @@ urlpatterns = [
     path('subir', views.subir, name='subir'),
     path('registrar', views.registrar, name='registrar'),
     path('login', views.paginaLogin, name='paginaLogin'),
-    path('principal', views.cerrarSesion, name='principal')
+    path('principal', views.cerrarSesion, name='principal'),
+    path('descargar_archivo/<int:archivo_id>/', views.descargar_archivo, name='descargar_archivo'),
 ]
 
 if settings.DEBUG:
