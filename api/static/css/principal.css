@@ -14,7 +14,7 @@
 
 .back {
     padding: 60px 0;
-    background-color: #080aa3;
+    background-color: #3900AD;
 }
 
 .merakt {
@@ -59,4 +59,8 @@
 .conteiner2 {
     margin-left: 380px;
     margin-top: 210px;
+}
+
+body {
+    width: 100%;
 }

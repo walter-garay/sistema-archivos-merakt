@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-    <link type="text/css" rel="stylesheet" href="static/css/principal.css">
+    <title>MerakT Archivos</title>
+    <link type="text/css" rel="stylesheet" href="\api\static\css\principal.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,19 +14,18 @@
             <div class="conteiner">
                 <a class="merakt">MerakT Archivos</a>
                 <nav class="nave">
-                    <ul>
-                        <li><a href="{% url 'paginaLogin' %}">Login</a></li>
-                        <li><a href="{% url 'registrar' %}">Registrarse</a></li>
-                    </ul>
+                    <a href="{% url 'paginaLogin' %}">Login</a>
+                    <a href="{% url 'registrar' %}">Registrarse</a>
                 </nav>
             </div>
         </div>
 
-        <div class="centro">
-            <div class="conteiner2">
-                <h2 class="titulo">Gestor De Archivos</h2>
-            </div>
-        </div>
+        
     </header>
+    <div class="centro">
+        <div class="conteiner2">
+            <h2 class="titulo">Gestor De Archivos</h2>
+        </div>
+    </div>
 </body>
 </html>
