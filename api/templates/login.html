@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="static/css/login.css">
     <title>Document</title>
 </head>
 <body>
-    <form method="POST">
+    <div class="back">
+        <div class="conteiner">
+            <a class="merakt">MerakT Archivos</a>
+        </div>
+    </div>
+    <form class="form" method="POST">
         <center>
             <div class="container">
                 <h1>Pagina Login</h1>
                 {% csrf_token %}
-                <table cellpadding="5" cellpacing="2" border="1">
+                <table class="table" cellpadding="5" cellpacing="2" border="1">
                     <thead>
                         <tr>
                             <th colspan="2" align="center">Formulario Login</th>

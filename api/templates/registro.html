@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="static/css/registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>FORMULARIO DE REGISTRO E INICIO DE SESIÓN</title>
 </head>
 <body>
-    <div class="conteiner"></div>
-        <div class="infromacion"></div>
-        <div class="info">
-            <h2>Bienvenido</h2>
-            <p>Para unirte a nuestra comuninidad Inicie Sesión con tus datos</p>
-            <a href="{% url 'paginaLogin' %}">Login</a>
+    <div class="container-form">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para unirte a nuestra comuninidad Inicie Sesión con tus datos</p>
+                <a href="{% url 'paginaLogin' %}">Iniciar Sesión</a>
+            </div>
         </div>
-        <div class="conteiner1">
-            <div class="formulario">
+
+        <div class="form-information">
+            <div class="form-information-childs">
                 <h2>Crear una Cuenta</h2>
                 <div class="icons">
                     <i class='bx bxl-google'></i>
                 </div>
-                <p>usa tu gmail para registrarte</p>
+                <p>o usa tu gmail para registrarte</p>
                 
-                <form action="registrar" method="POST">
+                <form class="form" action="registrar" method="POST">
                     {% csrf_token %}
                     <label>
                         <i class='bx bx-user' ></i>
                         <input type="text" placeholder="Primer Nombre" name="Nombre" required> 
+                    </label>
+                    <label>
+                        <i class='bx bx-user' ></i>
+                        <input type="text" placeholder="Apellido Paterno" name="Apellidos" required> 
                     </label>
                     <label>
                         <i class='bx bx-envelope' ></i>
@@ -36,7 +45,8 @@
                         <i class='bx bx-lock-alt' ></i>
                         <input type="password" placeholder="Contraseña" name="Password" required>
                     </label>
-                    <button type="submit">Enviar</button>
+
+                    <button type="submit">Registrarse</button>
                 </form>
             </div>
         </div>

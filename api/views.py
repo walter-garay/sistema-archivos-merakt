@@ -26,8 +26,8 @@ def subir(request):
         propietario = request.POST['propietario']
         propietario = get_object_or_404(Usuario, nombre = propietario)
         archivo = request.FILES.get('archivo')
-        fecha = request.POST['fecha']
-        Archivo(propietario=propietario,archivo=archivo,fecha=fecha).save()
+        
+        Archivo(propietario=propietario,archivo=archivo).save()
         return HttpResponse('Archivo subido exitosamente')
     else:
         return render(request, 'index.html')
@@ -35,9 +35,10 @@ def subir(request):
 def registrar(request):
     if request.method == 'POST':
         nombre = request.POST['Nombre']
+        apellidos = request.POST['Apellidos']
         Email = request.POST['Correo']
         password = request.POST['Password']
-        Usuario(nombre=nombre, Email=Email, password=password).save()
+        Usuario(nombre=nombre, apellidos=apellidos, Email=Email, password=password).save()
         return render(request, 'registro.html')
     else:
         return render(request, 'registro.html')

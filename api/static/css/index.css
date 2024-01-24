@@ -23,18 +23,37 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
-    margin-left: 30px;
+    margin-left: 45px;
+    position: fixed;
+}
+
+.conteiner1 .buscar {
+    margin-top: 2px;
+    margin-left: 35%;
+    background-color: hsla(0, 60%, 97%, 0.986);
+    border-radius: 20px;
+    border: none;
+    padding: 13px 250px; 
+}
+
+.correo {
+    color: #ffffff;
+    position: fixed;
+    font-size: 25px;
+    margin-top: -7px;
+    margin-left: 80%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .conteiner .link .links {
     position: fixed;
-    margin-left: 83%;
+    margin-left: 81%;
     font-size: 25px;
     padding: 25px;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-    margin-top: -15px;
+    margin-top: 5px;
 }
 .conteiner .link .links:hover {
     color: rgb(156, 0, 0);
@@ -47,7 +66,35 @@
     font-weight: 500;
 }
 
-.conteiner2 {
-    margin-left: 21%;
-    margin-top: 14%;
+.conteiner2 .titulo {
+    margin-left: 22%;
+    margin-top: 10%;
 }
+
+.form .dentro {
+    margin-left: 43%;
+    margin-top: 2%;
+}
+.form .dentro1 {
+    margin-left: 45%;
+    margin-top: 2%;
+}
+
+.boton {
+    margin-left: 46%; 
+    margin-top: 2%;
+}
+
+.boton .boton1 {
+  background-color: #3900ad; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 30px;  /* Espaciado interno (arriba/abajo, izquierda/derecha) */
+  font-size: 16px; /* Tamaño de la fuente */
+  border: none;   /* Sin borde */
+  border-radius: 4px; /* Borde redondeado */
+  cursor: pointer;
+}
+
+.boton .boton1:hover {
+    background-color: #302019; /* Cambia el color de fondo al pasar el mouse */
+  }
