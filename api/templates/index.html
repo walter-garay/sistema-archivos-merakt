@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-{% if request.session.Email %}
-{{request.session.Email}} &nbsp;&nbsp; 
-<div class="Sesion">
-    <a href="{% url 'principal' %}">Cerrar Sesion</a>
-</div>
 <body>
     <header>
         <div class="back">
             <div class="conteiner">
+                <div class="correo">
+                    {% if request.session.Email %}
+                    {{request.session.Email}} &nbsp;&nbsp;
+                </div>
+                <div class="link">
+                    <a class="links" href="{% url 'principal' %}">Cerrar Sesion</a>
+                </div>
                 <a class="merakt">MerakT Archivos</a>
             </div>
             <div class="conteiner1">

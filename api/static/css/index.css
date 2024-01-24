@@ -26,31 +26,19 @@
     margin-left: 30px;
 }
 
-.conteiner .nave ul li {
-    position: relative;
-    float: left;
-    margin-right: -980px;
-}
-
-.conteiner .nave ul{
-    padding: 0;
-    margin: 0;
-}
-.conteiner .nave ul li a {
+.conteiner .link .links {
+    position: fixed;
+    margin-left: 83%;
     font-size: 25px;
-    padding: 35px;
+    padding: 25px;
     color: #ffffff;
-    display: block;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    margin-left: 1520px;
-    margin-top: -75px;
-    margin-right: -560px;
+    font-weight: 200;
+    margin-top: -15px;
 }
-.conteiner .nave ul li a:hover {
+.conteiner .link .links:hover {
     color: rgb(156, 0, 0);
 }
-
 .titulo {
     color: rgb(27, 20, 17);
     font-size: 600%;
