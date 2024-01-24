@@ -30,7 +30,7 @@ def subir(request):
         Archivo(propietario=propietario,archivo=archivo).save()
         return HttpResponse('Archivo subido exitosamente')
     else:
-        return render(request, 'index.html')
+        return render(request, 'subir.html')
 
 def registrar(request):
     if request.method == 'POST':
