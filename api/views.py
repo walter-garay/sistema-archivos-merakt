@@ -28,7 +28,7 @@ def subir(request):
         archivo = request.FILES.get('archivo')
         
         Archivo(propietario=propietario,archivo=archivo).save()
-        return HttpResponse('Archivo subido exitosamente')
+        return render(request, 'subir.html')
     else:
         return render(request, 'subir.html')
 
