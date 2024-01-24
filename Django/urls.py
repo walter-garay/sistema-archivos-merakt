@@ -37,6 +37,7 @@ urlpatterns = [
     path('login', views.paginaLogin, name='paginaLogin'),
     path('principal', views.cerrarSesion, name='principal'),
     path('descargar_archivo/<int:archivo_id>/', views.descargar_archivo, name='descargar_archivo'),
+    path('eliminar_archivo/<int:archivo_id>/', views.eliminar_archivo, name='eliminar_archivo'),
 ]
 
 if settings.DEBUG:

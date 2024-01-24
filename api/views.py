@@ -27,6 +27,11 @@ def descargar_archivo(request, archivo_id):
     response = FileResponse(archivo.archivo, as_attachment=True)
     return response
 
+def eliminar_archivo(request, archivo_id):
+    archivo = get_object_or_404(Archivo, pk=archivo_id)
+    archivo.delete()
+    return redirect('subir')    
+
 def paginaIndex(request):
     return render(request, 'index.html')
 

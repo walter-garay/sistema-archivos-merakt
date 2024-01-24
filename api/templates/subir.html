@@ -19,8 +19,9 @@
       <div class="nombre">{{ archivo.nombre }}</div>
       <div class="peso">{{ archivo.fecha }}</div>
       <div class="botones">
-        <button><i class="bi bi-trash3" style="color: rgb(255, 0, 0);"></i></button>
-        <button><i class="bi bi-pencil" style="color: rgb(0, 173, 6);"></i></button>
+        <a href="{% url 'eliminar_archivo' archivo.id %}">
+          <button><i class="bi bi-trash3" style="color: rgb(255, 0, 0);"></i></button>
+        </a>        <button><i class="bi bi-pencil" style="color: rgb(0, 173, 6);"></i></button>
         <a href="{% url 'descargar_archivo' archivo.id %}" download>
           <button><i class="bi bi-download"></i></button>
         </a>
