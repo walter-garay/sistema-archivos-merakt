@@ -15,12 +15,12 @@
         <form class="form" method="POST">
             {% csrf_token %}
             <div class="username">
+                <a>Correo Electronico</a>
                 <input type="text" name="Correo" required>
-                <label>Correo Electronico</label>
             </div>
             <div class="username">
+                <a>Contraseña</a>
                 <input type="password"  name="password" required>
-                <label>Contraseña</label>
             </div>
             <button href="{% url 'paginaLogin' %}" type="submit">Login</button>
             &nbsp;&nbsp;

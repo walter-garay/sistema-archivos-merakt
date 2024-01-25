@@ -14,7 +14,7 @@
 
 .back {
     padding: 60px 0;
-    background-color: #3900ad;
+    background: linear-gradient(150deg, #3900ad, #73339e);
 }
 
 .merakt {
@@ -39,7 +39,7 @@
 .conteiner .nave ul li a {
     font-size: 25px;
     padding: 35px;
-    color: #ffffff;
+    color: #36d2ee;
     display: block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;

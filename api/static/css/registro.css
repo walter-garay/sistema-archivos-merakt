@@ -27,7 +27,7 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #3900ad;
+    background: linear-gradient(150deg, #3900ad, #73339e);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .form button[type="submit"] {
-    background-color: #9191bd;
+    background-color: #2121a5;
     color: #fff;
     border-radius: 20px;
     border: none;
@@ -152,7 +152,7 @@ body {
 }
 
 .form button[type="submit"]:hover {
-    background-color: #7a7a9a;
+    background: linear-gradient(150deg, #3900ad, #73339e);
 }
 
 /*RESPONSIVE FORM*/
