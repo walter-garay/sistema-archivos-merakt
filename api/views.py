@@ -8,6 +8,9 @@ from .models import Usuario, Archivo
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse
 from django.http import FileResponse
+import os
+
+
 
 
 
@@ -29,8 +32,25 @@ def descargar_archivo(request, archivo_id):
 
 def eliminar_archivo(request, archivo_id):
     archivo = get_object_or_404(Archivo, pk=archivo_id)
+    ruta_archivo = archivo.archivo.path
     archivo.delete()
-    return redirect('subir')    
+    if os.path.exists(ruta_archivo):
+        os.remove(ruta_archivo)
+    return redirect('subir')   
+
+def subir_archivo(request):
+    if request.method == 'POST':
+        formulario = ArchivoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            # Guarda el formulario y el propietario (usuario) asociado
+            archivo_instance = formulario.save(commit=False)
+            archivo_instance.propietario = Usuario.objects.get(id=request.POST['propietario'])
+            archivo_instance.save()
+            return redirect('subir')
+    else:
+        formulario = ArchivoForm()
+
+    return render(request, 'subir.html', {'formulario': formulario})
 
 def paginaIndex(request):
     return render(request, 'index.html')

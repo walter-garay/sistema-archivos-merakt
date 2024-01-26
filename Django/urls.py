@@ -38,6 +38,7 @@ urlpatterns = [
     path('principal', views.cerrarSesion, name='principal'),
     path('descargar_archivo/<int:archivo_id>/', views.descargar_archivo, name='descargar_archivo'),
     path('eliminar_archivo/<int:archivo_id>/', views.eliminar_archivo, name='eliminar_archivo'),
+    path('subir_archivo', views.subir_archivo, name='subir_archivo'),
 ]
 
 if settings.DEBUG:

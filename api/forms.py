@@ -1,8 +1,7 @@
 from django import forms
 from .models import Archivo
 
-class ArchivoForm(forms.Form):
+class ArchivoForm(forms.ModelForm):
     class Meta:
         model = Archivo
-        fields = ['propietario', 'archivo']
-    
+        fields = ['archivo', 'nombre', 'propietario']

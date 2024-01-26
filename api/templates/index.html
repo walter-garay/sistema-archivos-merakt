@@ -12,46 +12,43 @@
 </head>
 <body>
     <header>
-        <div class="back">
-            <div class="conteiner">
-            <div class="correo">
-                {% if request.session.Email %}
-                {{request.session.Email}} &nbsp;&nbsp;
-            </div>
-                <div class="link">
-                    <a class="links" href="{% url 'principal' %}">Cerrar Sesion</a>
-                </div>
+        <div class="top-bar">
+            <div class="logo">
                 <a class="merakt">MerakT Archivos</a>
             </div>
-            <div class="conteiner1">
+            <div class="search">
                 <input class="buscar" type="text" placeholder="Buscar...">
             </div>
-        </div>
-
-        <div class="centro">
-            <div class="conteiner2">
-                <h2 class="titulo">Gestor De Archivos</h2>
+            <div class="user-info">
+                <div class="correo">
+                    {% if request.session.Email %}
+                        {{request.session.Email}} &nbsp;&nbsp;
+                    {% endif %}
+                </div>
+                <div class="profile-pic">
+                    <!-- Agrega aquí la lógica para mostrar la foto de perfil del usuario -->
+                    <!-- Puedes utilizar la etiqueta img o algún otro método -->
+                </div>
             </div>
         </div>
 
-        <div class="form">
-            <form action="subir" method="POST" enctype="multipart/form-data">
+        <div class="center">
+            <h2 class="titulo">Gestor De Archivos</h2>
+            <form action="subir_archivo" method="POST" enctype="multipart/form-data" class="upload-form">
                 {% csrf_token %}
                 {{formulario.as_p}}
-                <div class="dentro">
-                    <i class='bx bx-user' ></i>
+                <div class="input-container">
+                    <i class='bx bx-user'></i>
                     <input type="text" placeholder="Propietario" name="propietario" required>
                 </div>
-                <div class="dentro1">
+                <div class="input-container">
                     <input type="file" name="archivo" multiple>
                 </div>
-                <div class="boton">
-                    <button class="boton1" cltype="submit">Enviar</button>
+                <div class="button-container">
+                    <button class="boton1" type="submit">Enviar</button>
                 </div>
             </form>
         </div>  
     </header>
 </body>
-{% else %}
-{% endif %}
 </html>
