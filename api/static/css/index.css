@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
 }
 
 .top-bar {
@@ -9,7 +9,17 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    height: 60px; /* Nueva línea para agregar altura */
+    height: 60px;
+}
+
+.merakt {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.logo {
+    margin-left: 20px;
 }
 
 .logo, .search, .user-info {
@@ -23,13 +33,17 @@ body {
 .search {
     display: flex;
     justify-content: center;
-    align-items: center; /* Nueva línea para centrar verticalmente */
+    align-items: center;
 }
 
 .buscar {
     width: 80%;
-    height: 30px; /* Nueva línea para agregar altura */
-    border-radius: 8px; /* Nueva línea para bordes redondeados */
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 .user-info {
@@ -41,10 +55,17 @@ body {
 .center {
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 180px); /* Resta la altura de top-bar */
 }
 
 .titulo {
-    color: black; /* Cambiado a negro */
+    color: rgb(27, 27, 27);
+    font-style: normal;
+    font-size: 60px;
 }
 
 .upload-form {
@@ -71,9 +92,22 @@ body {
 
 .upload-btn {
     background-color: #3900ad;
-    color: white;
-    border: none;
+    color: #fff;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    display: inline-block;
 }
+
+.archivo-input {
+    display: none;
+}
+
+.input-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+

@@ -4,4 +4,4 @@ from .models import Archivo
 class ArchivoForm(forms.ModelForm):
     class Meta:
         model = Archivo
-        fields = ['archivo', 'nombre', 'propietario']
+        fields = ['archivo', 'nombre']

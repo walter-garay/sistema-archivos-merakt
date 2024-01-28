@@ -41,13 +41,18 @@ def eliminar_archivo(request, archivo_id):
 def subir_archivo(request):
     if request.method == 'POST':
         formulario = ArchivoForm(request.POST, request.FILES)
+        print("AQUI1")
+        user_id = request.session.get('user_id')
         if formulario.is_valid():
-            # Guarda el formulario y el propietario (usuario) asociado
             archivo_instance = formulario.save(commit=False)
-            archivo_instance.propietario = Usuario.objects.get(id=request.POST['propietario'])
+            archivo_instance.propietario = Usuario.objects.get(id=user_id)
+
             archivo_instance.save()
+            
+            print("AQUI2")
             return redirect('subir')
     else:
+        print("AQUI3")
         formulario = ArchivoForm()
 
     return render(request, 'subir.html', {'formulario': formulario})
@@ -55,16 +60,9 @@ def subir_archivo(request):
 def paginaIndex(request):
     return render(request, 'index.html')
 
-def subir(request):
+def obtenerArchivos(request):
     archivos = Archivo.objects.all()
-            
-    if request.method == 'POST':
-        propietario = request.POST['propietario']
-        propietario = get_object_or_404(Usuario, nombre=propietario)
-        Archivo(propietario=propietario, archivos=archivos).save() 
-        return HttpResponse('Archivo subido exitosamente')
-    
-    else:
+    if request.method == 'GET':
         return render(request, 'subir.html', {'archivos': archivos})
 
 def registrar(request):
@@ -79,11 +77,15 @@ def registrar(request):
         return render(request, 'registro.html')
     
 def paginaLogin(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         try:
             detalleUsuario = Usuario.objects.get(Email=request.POST['Correo'], password=request.POST['password'])
             print("Usuario", detalleUsuario)
-            request.session['Email'] = detalleUsuario.Email
+            request.session['user_email'] = detalleUsuario.Email
+            request.session['user_id'] = detalleUsuario.pk
+            request.session['user_name'] = detalleUsuario.nombre
+
+
             return render(request, 'index.html')
         except Usuario.DoesNotExist as e:
             messages.success(request, 'El nombre o password no es correcto..')

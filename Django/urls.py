@@ -32,7 +32,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('', RedirectView.as_view(url='api/')),
     path('index', views.paginaIndex),
-    path('subir', views.subir, name='subir'),
+    path('subir', views.obtenerArchivos, name='subir'),
     path('registrar', views.registrar, name='registrar'),
     path('login', views.paginaLogin, name='paginaLogin'),
     path('principal', views.cerrarSesion, name='principal'),

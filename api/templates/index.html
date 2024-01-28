@@ -17,17 +17,16 @@
                 <a class="merakt">MerakT Archivos</a>
             </div>
             <div class="search">
-                <input class="buscar" type="text" placeholder="Buscar...">
+                <input class="buscar" type="text" placeholder="  Buscar archivo">
             </div>
             <div class="user-info">
                 <div class="correo">
                     {% if request.session.Email %}
+                        {{request.session.user_name}} &nbsp;&nbsp;
                         {{request.session.Email}} &nbsp;&nbsp;
                     {% endif %}
                 </div>
                 <div class="profile-pic">
-                    <!-- Agrega aquí la lógica para mostrar la foto de perfil del usuario -->
-                    <!-- Puedes utilizar la etiqueta img o algún otro método -->
                 </div>
             </div>
         </div>
@@ -38,11 +37,11 @@
                 {% csrf_token %}
                 {{formulario.as_p}}
                 <div class="input-container">
-                    <i class='bx bx-user'></i>
-                    <input type="text" placeholder="Propietario" name="propietario" required>
-                </div>
-                <div class="input-container">
-                    <input type="file" name="archivo" multiple>
+                    <label for="archivo" class="upload-btn">
+                        <i class='bx bx-upload'></i> Seleccionar Archivo
+                    </label>
+                    <input id="archivo" class="archivo-input" type="file" name="archivo" multiple onchange="updateFileName(this)">
+                    <span class="file-name">Ningún archivo seleccionado</span>
                 </div>
                 <div class="button-container">
                     <button class="boton1" type="submit">Enviar</button>
