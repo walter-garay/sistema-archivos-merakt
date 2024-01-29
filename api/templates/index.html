@@ -22,7 +22,8 @@
             <div class="user-info">
                 <div class="correo">
                     {% if request.session.Email %}
-                        {{request.session.user_name}} &nbsp;&nbsp;
+                        {{request.session.user_name}} 
+                        {{request.session.user_apellido}} &nbsp;&nbsp;
                         {{request.session.Email}} &nbsp;&nbsp;
                     {% endif %}
                 </div>
@@ -32,7 +33,7 @@
         </div>
 
         <div class="center">
-            <h2 class="titulo">Gestor De Archivos</h2>
+            <h2 class="titulo">Gestor de Archivos</h2>
             <form action="subir_archivo" method="POST" enctype="multipart/form-data" class="upload-form">
                 {% csrf_token %}
                 {{formulario.as_p}}
@@ -40,14 +41,24 @@
                     <label for="archivo" class="upload-btn">
                         <i class='bx bx-upload'></i> Seleccionar Archivo
                     </label>
-                    <input id="archivo" class="archivo-input" type="file" name="archivo" multiple onchange="updateFileName(this)">
-                    <span class="file-name">Ningún archivo seleccionado</span>
+                    <input id="archivo" class="archivo-input" type="file" name="archivo" onchange="updateFileName(this)">     
                 </div>
+
+                <div id="file-name-container" class="file-name"></div>
+
                 <div class="button-container">
                     <button class="boton1" type="submit">Enviar</button>
                 </div>
             </form>
         </div>  
     </header>
+    <script>
+        function updateFileName(input) {
+            var fileNameContainer = document.getElementById('file-name-container');
+            var fileName = input.files[0].name;
+    
+            fileNameContainer.innerHTML = fileName;
+        }
+    </script>
 </body>
 </html>

@@ -84,6 +84,7 @@ def paginaLogin(request):
             request.session['user_email'] = detalleUsuario.Email
             request.session['user_id'] = detalleUsuario.pk
             request.session['user_name'] = detalleUsuario.nombre
+            request.session['user_apellido'] = detalleUsuario.apellidos
 
 
             return render(request, 'index.html')
