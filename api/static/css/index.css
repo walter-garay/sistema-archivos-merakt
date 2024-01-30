@@ -92,17 +92,22 @@ body {
     text-align: center;
 }
 
+.file-name {
+    margin-bottom: 20px;
+}
+
 .boton1 {
     background-color: #3900ad;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer;   
+    font-weight: bold;
 }
 
 .upload-btn {
-    background-color: #3900ad;
+    background-color: #3d3d3d;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
