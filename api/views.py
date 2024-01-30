@@ -16,7 +16,6 @@ from django.http import JsonResponse
 
 
 
-
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = models.Usuario.objects.all()
     serializer_class = serializers.UsuarioSerializer
@@ -113,16 +112,3 @@ def cerrarSesion(request):
     except:
         return render(request, 'principal.html')
     return render(request, 'principal.html')
-
-
-def editar_nombre(request, archivo_id):
-    archivo = get_object_or_404(Archivo, id=archivo_id)
-
-    if request.method == 'POST':
-        nuevo_nombre = request.POST.get('nuevo_nombre')
-        archivo.nombre = nuevo_nombre
-        archivo.save()
-
-        return JsonResponse({'success': True})
-
-    return render(request, 'subir.html', {'archivo': archivo})
