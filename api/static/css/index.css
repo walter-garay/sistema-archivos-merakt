@@ -35,10 +35,7 @@ body {
 .sesion {
     display: inline-flex;
     color: white;
-    justify-content: flex-end;
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
-    margin-left: 200px; /* Empuja el contenido hacia el extremo derecho */
-    padding-right: 2px; /* Espacio entre el contenido y el borde derecho */
+    margin-left: 200px;  
 }
 
 .search {
