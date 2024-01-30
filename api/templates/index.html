@@ -18,19 +18,8 @@
             </div>
             <div class="search">
                 <input id="buscar-input" class="buscar" type="text" placeholder="  Buscar archivo">
-                <a  class="sesion" href="{% url 'paginaLogin' %}">Cerrar Sesion</a>
             </div>
-            <div class="user-info">
-                <div class="correo">
-                    {% if request.session.Email %}
-                        {{request.session.user_name}} 
-                        {{request.session.user_apellido}} &nbsp;&nbsp;
-                        {{request.session.Email}} &nbsp;&nbsp;
-                    {% endif %}
-                </div>
-                <div class="profile-pic">
-                </div>
-            </div>
+            <a  class="sesion" href="{% url 'paginaLogin' %}">Cerrar Sesion</a>
         </div>
 
         <div class="center">

@@ -24,7 +24,7 @@ body {
     margin-left: 20px;
 }
 
-.logo, .search, .user-info {
+.logo, .search, .sesion {
     flex: 1;
 }
 
@@ -35,13 +35,15 @@ body {
 .sesion {
     display: inline-flex;
     color: white;
-    margin-left: 200px;  
+    margin-right: 20px;
+    justify-content: right;
 }
 
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Agrega posición relativa al contenedor para usarla en el input */
 }
 
 .buscar {
