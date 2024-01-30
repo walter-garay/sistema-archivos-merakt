@@ -73,6 +73,11 @@ body {
     margin: 0 auto;
 }
 
+
+.upload-btn:hover {
+    background-color: #6a6a6a;
+  }
+  
 .input-container {
     margin-bottom: 15px;
 }
@@ -105,6 +110,7 @@ body {
     cursor: pointer;
     display: inline-block;
 }
+
 
 .archivo-input {
     display: none;

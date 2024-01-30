@@ -17,7 +17,7 @@
                 <a class="merakt">MerakT Archivos</a>
             </div>
             <div class="search">
-                <input class="buscar" type="text" placeholder="  Buscar archivo">
+                <input id="buscar-input" class="buscar" type="text" placeholder="  Buscar archivo">
             </div>
             <div class="user-info">
                 <div class="correo">
@@ -59,6 +59,15 @@
     
             fileNameContainer.innerHTML = fileName;
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var buscarInput = document.getElementById('buscar-input');
+    
+            buscarInput.addEventListener("click", function() {
+                // Redirige a la vista "subir" al hacer clic en el cuadro de búsqueda
+                window.location.href = "{% url 'subir' %}";
+            });
+        });
     </script>
 </body>
 </html>

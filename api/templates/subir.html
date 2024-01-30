@@ -8,29 +8,62 @@
   <link rel="stylesheet" href="static/css/subir.css">
 </head>
 <body>
+  <h1>Archivos MerakT</h1>
   <div class="container">
-    <h1>Mis Archivos</h1>
     <div class="buscador">
-        <input type="text" placeholder="Buscar" />
+        <input type="text" id="searchInput" placeholder="Buscar" />
         <button class="lupa-icon"><i class="bi bi-search"></i></button>
-    </div>      
+    </div>
+    <div class="table-header">
+        <div class="header-item">Archivo</div>
+        <div class="header-item">Tipo</div>
+        <div class="header-item">Fecha carga</div>
+        <div class="header-item">Tamaño</div>
+        <div class="header-item">Subido por</div>
+        <div class="header-item">Acciones</div>
+    </div>
     {% for archivo in archivos %}
-    <div class="rectangulo">
-      <div class="nombre">{{ archivo.nombre }}</div>
-      <div class="peso">{{ archivo.fecha }}</div>
-      <div class="botones">
-        <a href="{% url 'eliminar_archivo' archivo.id %}">
-          <button><i class="bi bi-trash3" style="color: rgb(255, 0, 0);"></i></button>
-        </a>        <button><i class="bi bi-pencil" style="color: rgb(0, 173, 6);"></i></button>
-        <a href="{% url 'descargar_archivo' archivo.id %}" download>
-          <button><i class="bi bi-download"></i></button>
-        </a>
-      </div>
+    <div class="rectangulo" data-nombre="{{ archivo.nombre }}">
+        <div class="item nombre">{{ archivo.nombre }}</div>
+        <div class="item">{{ archivo.extension }}</div>
+        <div class="item">{{ archivo.fecha }}</div>
+        <div class="item">{{ archivo.size_display }}</div>
+        <div class="item">{{ archivo.propietario }}</div>
+        <div class="item botones">
+            <a href="{% url 'eliminar_archivo' archivo.id %}">
+                <button><i class="bi bi-trash3" style="color: rgb(255, 0, 0);"></i></button>
+            </a>
+            <button class="editar-btn"><i class="bi bi-pencil" style="color: rgb(0, 115, 173);"></i></button>
+              <a href="{% url 'descargar_archivo' archivo.id %}" download>
+                <button><i class="bi bi-download"></i></button>
+            </a>
+        </div>
     </div>
     {% endfor %}
   </div>
 
-    
-    
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Enfocar el input con JavaScript al cargar la página
+      document.querySelector('.buscador input').focus();
+
+      var rectangulos = document.querySelectorAll('.rectangulo');
+      var rectangulosArray = Array.from(rectangulos);
+
+      document.getElementById('searchInput').addEventListener('input', function() {
+        var searchTerm = this.value.toLowerCase();
+        
+        rectangulosArray.forEach(function(rectangulo) {
+          var nombreArchivo = rectangulo.dataset.nombre.toLowerCase();
+          
+          if (nombreArchivo.includes(searchTerm)) {
+            rectangulo.classList.remove('oculto');
+          } else {
+            rectangulo.classList.add('oculto');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -9,6 +9,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse
 from django.http import FileResponse
 import os
+from django.http import JsonResponse
+
 
 
 
@@ -62,8 +64,20 @@ def paginaIndex(request):
 
 def obtenerArchivos(request):
     archivos = Archivo.objects.all()
-    if request.method == 'GET':
-        return render(request, 'subir.html', {'archivos': archivos})
+
+    for archivo in archivos:
+        archivo.extension = os.path.splitext(archivo.archivo.name)[1][1:].upper()
+        size = archivo.archivo.size
+        if size < 1024:
+            archivo.size_display = f"{size} B"
+        elif size < 1024 * 1024:
+            archivo.size_display = f"{size / 1024:.2f} KB"
+        elif size < 1024 * 1024 * 1024:
+            archivo.size_display = f"{size / (1024 * 1024):.2f} MB"
+        else:
+            archivo.size_display = f"{size / (1024 * 1024 * 1024):.2f} GB"
+
+    return render(request, 'subir.html', {'archivos': archivos})
 
 def registrar(request):
     if request.method == 'POST':
@@ -99,3 +113,16 @@ def cerrarSesion(request):
     except:
         return render(request, 'principal.html')
     return render(request, 'principal.html')
+
+
+def editar_nombre(request, archivo_id):
+    archivo = get_object_or_404(Archivo, id=archivo_id)
+
+    if request.method == 'POST':
+        nuevo_nombre = request.POST.get('nuevo_nombre')
+        archivo.nombre = nuevo_nombre
+        archivo.save()
+
+        return JsonResponse({'success': True})
+
+    return render(request, 'subir.html', {'archivo': archivo})

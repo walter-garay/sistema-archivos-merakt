@@ -1,3 +1,8 @@
+:root {
+  --color-primary: #F2F2F2;
+  --color-hover: #e2e2e2;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,10 +11,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   background-color: #ffffff;
-  margin-top: 300px; 
-
 }
 
 .container {
@@ -18,110 +21,48 @@ body {
 }
 
 .buscador {
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .buscador input {
-width: 600px; /* Aumentado el ancho del campo de búsqueda */
-padding: 15px;
-background-color: #F2F2F2 ;
-border: 1px solid #ced4da;
-border-radius: 8px;
+  width: 500px;
+  padding: 15px;
+  background-color: var(--color-primary);
+  border: 1px solid #ced4da;
+  border-radius: 8px;
 }
 
 .buscador button {
-background-color: transparent; /* Quitado el fondo */
-border: none;
-color: #000000;
-margin-left: 10px;
-cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .rectangulo {
-width: 0 auto;
-height: 50px;
-background-color: #F2F2F2;
-border-radius: 10px;
-padding: 10px 30px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 15px;
-transition: background-color 0.3s;
+  width: 0 auto;
+  height: 50px;
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
 }
 
 .rectangulo:hover {
-  background-color: #e2e2e2; /* Cambia el color a tu preferencia */
+  background-color: var(--color-hover);
 }
+
 
 .botones button:hover {
-  filter: brightness(50%); /* Cambia el porcentaje según tus preferencias */
-}
-
-.nombre {
-font-weight: bold;
-}
-
-.peso {
-font-style: italic;
-}
-
-.botones {
-display: flex;
-}
-
-i {
-font-size: 25px;
-}
-
-button {
-background-color: transparent;
-border: none;
-cursor: pointer;
-padding: 0 8px;
-}
-
-.container {
-  text-align: center;
-  width: 80%;
-}
-
-.buscador {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.buscador input {
-  width: 600px; /* Aumentado el ancho del campo de búsqueda */
-  padding: 15px;
-  background-color: #F2F2F2 ;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-}
-
-.buscador button {
-  background-color: transparent; /* Quitado el fondo */
-  border: none;
-  color: #000000;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.rectangulo {
-  width: 0 auto;
-  height: 50px;
-  background-color: #F2F2F2;
-  border-radius: 10px;
-  padding: 10px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  filter: brightness(50%);
 }
 
 .nombre {
@@ -134,6 +75,7 @@ padding: 0 8px;
 
 .botones {
   display: flex;
+  justify-content: center;
 }
 
 i {
@@ -146,68 +88,40 @@ button {
   cursor: pointer;
   padding: 0 8px;
 }
-  
 
-.container {
-  text-align: center;
-  width: 80%;
-}
-
-.buscador {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.buscador input {
-  width: 600px; /* Aumentado el ancho del campo de búsqueda */
-  padding: 15px;
-  background-color: #F2F2F2 ;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-}
-
-.buscador button {
-  background-color: transparent; /* Quitado el fondo */
-  border: none;
-  color: #000000;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.rectangulo {
-  width: 0 auto;
-  height: 50px;
-  background-color: #F2F2F2;
-  border-radius: 10px;
-  padding: 10px 30px;
+.table-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  background-color: rgb(76, 0, 168);
+  color: white;
+  border-radius: 10px;
+  padding: 10px 30px;
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
-.nombre {
-  font-weight: bold;
+.header-item {
+  flex: 2; /* Cambiado de flex: 1 a flex: 2 */
+  text-align: center;
 }
 
-.peso {
-  font-style: italic;
+.item {
+  flex: 1; /* Cambiado de flex: 1 a flex: 2 */
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.botones {
-  display: flex;
+.rectangulo > .item {
+  flex: 2; /* Cambiado de flex: 1 a flex: 2 */
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-i {
-  font-size: 25px;
+.rectangulo.oculto {
+  display: none;
 }
 
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0 8px;
-}
-  
